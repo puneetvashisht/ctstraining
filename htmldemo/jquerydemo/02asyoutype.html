@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Reverse</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="message"/>
+        <div id="result"></div>
+    </div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+    $('#message').bind('keyup', function(){
+        $('#result').html($('#message').val())
+    })
+   
+</script>
+
+</body>
+</html>

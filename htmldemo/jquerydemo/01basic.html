@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Reverse</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="message"/>
+        <button onclick="reverse()">Reverse</button>
+        <div id="result"></div>
+    </div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+   function reverse(){
+    //    var value = document.getElementById('message').value
+       var value = $('#message').val()
+       var revValue = value.split('').reverse().join('');
+    //    document.getElementById('result').innerText = revValue
+       $('#result').html(revValue) 
+   }
+</script>
+
+</body>
+</html>
