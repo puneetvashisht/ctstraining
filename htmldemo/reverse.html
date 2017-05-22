@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Reverse</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="message"/>
+        <button onclick="reverse()">Reverse</button>
+        <div id="result"></div>
+    </div>
+
+<script>
+   function reverse(){
+       var value = document.getElementById('message').value
+       var revValue = value.split('').reverse().join('');
+       document.getElementById('result').innerText = revValue
+   }
+</script>
+
+</body>
+</html>

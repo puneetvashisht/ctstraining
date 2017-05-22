@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Reverse</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="message" onkeyup="changeText()"/>
+       
+        <div id="result"></div>
+    </div>
+
+<script>
+   function changeText(){
+       var value = document.getElementById('message').value
+       document.getElementById('result').innerText = value
+   }
+</script>
+
+</body>
+</html>

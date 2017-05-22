@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <div>
+        <input type="number" id="oper1"/>
+        <input type="number" id="oper2"/>
+        <button onclick=add()> + </button>
+        <button onclick="sub()"> - </button>
+        <div id="result"></div>
+    </div>
+
+<script>
+    var x = 0, y=0;
+    function fetchValues(){
+       x = document.getElementById('oper1').value
+       y = document.getElementById('oper2').value
+    }
+
+    var add = function(){
+        console.log('Add function')
+        fetchValues();
+        var result = parseInt(x) + parseInt(y);
+        document.getElementById('result').innerHTML = result
+    }
+    var sub = function(){
+        console.log('sub function')
+        fetchValues();
+        var result = x - y;
+        document.getElementById('result').innerHTML = result
+    }
+</script>
+
+</body>
+</html>
