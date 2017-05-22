@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Basic HTML</title>
+    <style>
+        div {
+            background-color: blue
+        }
+    </style>
+</head>
+<body>
+    <div>Some text here</div>
+    <div id="message">Some content</div>
+
+    <button onclick="changeText()">Change Text</button>
+    <script>
+       
+
+        function changeText(){
+             console.log('testing if js is working')
+
+             var text = document.getElementById('message').innerHTML
+             console.log(text);
+
+             var revText = text.split('').reverse().join('')
+
+             document.getElementById('message').innerHTML = revText
+
+        }
+
+    </script>
+</body>
+</html>
