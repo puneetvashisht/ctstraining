@@ -1,0 +1,114 @@
+<html>
+<head>
+    <title>Employee List</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.css">
+</head>
+<body ng-app="myApp">
+    <div ng-controller="EmpCtrl">
+      <!-- {{name | uppercase}}
+       {{date | date:'d/M/yyyy'}}
+       {{numbers | orderBy}}-->
+
+       <table>
+            <tr ng-repeat="employee in employees | orderBy:'-first_name'">
+                <td>{{$index + 1}}</td>
+                <td>{{employee.first_name}}</td>
+                <td>{{employee.last_name}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.ip_address}}</td>
+            </tr>
+        </table>
+
+       
+
+    </div>
+    <script src="../libs/angular.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('EmpCtrl', function($scope){
+           
+            $scope.name = "Ravi"
+            $scope.date = new Date();
+
+            $scope.numbers = [23,457,7,4,3224,78,8990,34]
+
+            $scope.employees = [
+{
+  "id": 1,
+  "first_name": "Natal",
+  "last_name": "Nodes",
+  "email": "nnodes0@wsj.com",
+  "gender": "Male",
+  "ip_address": "18.18.139.210"
+}, {
+  "id": 2,
+  "first_name": "Bellina",
+  "last_name": "Dunmore",
+  "email": "bdunmore1@wp.com",
+  "gender": "Female",
+  "ip_address": "63.144.173.49"
+}, {
+  "id": 3,
+  "first_name": "Claretta",
+  "last_name": "Fidler",
+  "email": "cfidler2@ucla.edu",
+  "gender": "Female",
+  "ip_address": "249.74.178.236"
+}, {
+  "id": 4,
+  "first_name": "Zeb",
+  "last_name": "Gonthier",
+  "email": "zgonthier3@tinyurl.com",
+  "gender": "Male",
+  "ip_address": "103.57.72.10"
+}, {
+  "id": 5,
+  "first_name": "Hertha",
+  "last_name": "Walding",
+  "email": "hwalding4@stanford.edu",
+  "gender": "Female",
+  "ip_address": "233.124.190.212"
+}, {
+  "id": 6,
+  "first_name": "Karna",
+  "last_name": "Roll",
+  "email": "kroll5@google.fr",
+  "gender": "Female",
+  "ip_address": "142.234.65.71"
+}, {
+  "id": 7,
+  "first_name": "Aurlie",
+  "last_name": "Du Plantier",
+  "email": "aduplantier6@tinyurl.com",
+  "gender": "Female",
+  "ip_address": "204.85.102.48"
+}, {
+  "id": 8,
+  "first_name": "Inigo",
+  "last_name": "Cousen",
+  "email": "icousen7@edublogs.org",
+  "gender": "Male",
+  "ip_address": "0.161.114.202"
+}, {
+  "id": 9,
+  "first_name": "Alyse",
+  "last_name": "Holston",
+  "email": "aholston8@yale.edu",
+  "gender": "Female",
+  "ip_address": "91.57.120.197"
+}, {
+  "id": 10,
+  "first_name": "Arin",
+  "last_name": "Sandes",
+  "email": "asandes9@printfriendly.com",
+  "gender": "Male",
+  "ip_address": "101.132.137.123"
+}]
+        })
+           
+
+    </script>
+</body>
+</html>
