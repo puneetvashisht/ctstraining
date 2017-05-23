@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Todo</title>
+</head>
+</html>
+<body ng-app="todoApp">
+    <div ng-controller="TodoCtrl">
+        <input type="text" ng-model="t"/>
+        <button ng-click="addTodo()"> Add </button>
+        <ul>
+            <li ng-repeat="todo in todos">
+                <span>{{todo}}</span>
+                <button ng-click="removeTodo($index)"> X </button>
+            </li>
+        </ul>
+       
+    </div>
+    <script src="../libs/angular.js"></script>
+    <script>
+        var app = angular.module('todoApp', [])
+        app.controller('TodoCtrl', function($scope){
+
+            $scope.todos = ['Task1', 'Task2']
+
+            $scope.addTodo = function(){
+                $scope.todos.push($scope.t)
+                $scope.t =''
+            }
+            $scope.removeTodo = function(index){
+                $scope.todos.splice(index, 1)
+            }
+            
+           
+        })
+    
+    </script>
+</body>

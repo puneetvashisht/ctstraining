@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>SI</title>
+</head>
+</html>
+<body ng-app="myApp">
+    <div ng-controller="SIController">
+        <input type="number" ng-model="p"/>
+        <input type="number" ng-model="r"/>
+        <input type="number" ng-model="t"/>
+        <button ng-click="calculate()"></button>
+        {{result}}
+    </div>
+    <script src="../libs/angular.js"></script>
+    <script>
+        var myApp = angular.module('myApp', [])
+        myApp.controller('SIController', function($scope){
+            $scope.calculate = function(){
+                $scope.result = $scope.p * $scope.r * $scope.t/100 
+            }
+        })
+    
+    </script>
+</body>
