@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body ng-app="calcApp">
+    
+    <div ng-controller="CalcController">
+        <div>{{result}}</div>
+        <input type="number" ng-model="oper1"/>
+        <input type="number" ng-model="oper2"/>
+        <button ng-click="add()"> + </button>
+        
+
+    </div>
+
+    <script src="../libs/angular.js"></script>
+    <script>
+        var calcApp = angular.module('calcApp', [])
+
+        calcApp.controller('CalcController', function($scope){
+            $scope.add = function(){
+                $scope.result = $scope.oper1 + $scope.oper2
+            }
+        })
+    
+    </script>
+</body>
+</html>

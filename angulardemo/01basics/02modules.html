@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Data Binding</title>
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller="AppCtrl">
+        <input type="text" ng-model="name"/>
+        {{name}} : {{age}}
+    </div>
+    
+    <script src="../libs/angular.js"></script>
+
+    <script>
+       var app = angular.module('myApp', [])
+
+       app.run(function(){
+           console.log('module created...')
+       })
+
+       app.controller('AppCtrl', function($scope){
+           $scope.name = "RAvi"
+           $scope.age = 34;
+       })
+
+    </script>
+</body>
+</html>
