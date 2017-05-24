@@ -33,7 +33,13 @@
         app.controller('EmpCtrl', function($scope){
             $scope.addEmployee = function(){
                 console.log($scope.employee)
-                $scope.employees.push($scope.employee)
+                var obj = {}
+                obj.first_name = $scope.employee.first_name;
+                obj.last_name = $scope.employee.last_name;
+                obj.email = $scope.employee.email;
+                obj.gender = $scope.employee.Gender;
+                obj.ip_address = $scope.employee.ip_address;
+                $scope.employees.push(obj)
             }
 
             $scope.employees = [

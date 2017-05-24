@@ -10,8 +10,14 @@
        {{date | date:'d/M/yyyy'}}
        {{numbers | orderBy}}-->
 
+       
+      
+       <input type="text" ng-model="search.first_name" placeholder="Search by Name"/>
+       <input type="text" ng-model="search.email" placeholder="Search by Email"/>
+       <input type="text" ng-model="search.$" placeholder="Search All"/>
+
        <table>
-            <tr ng-repeat="employee in employees | orderBy:'-first_name'">
+            <tr ng-repeat="employee in employees | filter: search | orderBy:'first_name'">
                 <td>{{$index + 1}}</td>
                 <td>{{employee.first_name}}</td>
                 <td>{{employee.last_name}}</td>
