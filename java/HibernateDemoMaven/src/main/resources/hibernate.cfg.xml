@@ -21,10 +21,11 @@
 		<property name="hibernate.connection.password">
 			root
 		</property>
-		<property name="hbm2ddl.auto">select</property>
+		<property name="hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
 
 		<!-- List of XML mapping files -->
-		<mapping resource="Employee.hbm.xml" />
+		<!-- <mapping resource="Employee.hbm.xml" /> -->
 
 	</session-factory>
 	
