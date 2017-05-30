@@ -1,0 +1,1 @@
+All the Exception classes should be created in this package

@@ -1,0 +1,1 @@
+All the VO classes should be created in this package
