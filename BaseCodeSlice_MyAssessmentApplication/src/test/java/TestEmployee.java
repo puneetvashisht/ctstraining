@@ -1,11 +1,14 @@
 package test.java;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +24,8 @@ import com.cognizant.service.EmployeeService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:beans.xml")
 public class TestEmployee {
+	
+	static final Logger logger = Logger.getLogger(TestEmployee.class);
 	
 	public static void main(String[] args) {
 		System.out.println(System.nanoTime());
@@ -38,10 +43,11 @@ public class TestEmployee {
 		employees.add(emp1);
 		employees.add(emp2);
 	}
-	@Test
+//	@Test
 	public void addEmployees(){
 		try {
 			service.addEmployees(employees);
+			logger.log(Priority.ERROR, "success");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -60,18 +66,21 @@ public class TestEmployee {
 	public void testSalariesLessThanLimit(){
 		List<Employee> employees = service.findEmployeesBySalary(35000);
 //		employees.size()
-		System.out.println(employees);
+		logger.warn(employees);
 		assertEquals(employees.size(), 1);
 	}
-//	@Test
+	@Test
 	public void testSalaryIncrement(){
-		double amount = 5000;
+		logger.debug("ONe Message ***");
+		logger.warn("Test *******");
+double amount = 5000;
 		Employee updatedEmp;
 		try {
 			updatedEmp = service.incrementSalary(1, amount);
-			System.out.println(updatedEmp);
+			logger.info(updatedEmp);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		// TODO Auto-generated catch block
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		

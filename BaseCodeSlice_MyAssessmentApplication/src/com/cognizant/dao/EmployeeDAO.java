@@ -6,15 +6,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cognizant.entity.Employee;
 
+import test.java.TestEmployee;
+
 
 
 @Component
 public class EmployeeDAO {
+	
+	static Logger logger = Logger.getLogger(EmployeeDAO.class);
     @PersistenceContext
     private EntityManager em;
 
@@ -34,9 +39,9 @@ public class EmployeeDAO {
 
 //	@Transactional
 	public Employee incrementSalary(int id, double amount) {
-		System.out.println("Id is : " + id);
+		logger.warn("Id is : " + id);
 		Employee employee = em.find(Employee.class, id);
-		System.out.println(employee);
+		logger.debug(employee);
 		employee.setSalary(employee.getSalary() + amount);
 		return employee;
 	}
