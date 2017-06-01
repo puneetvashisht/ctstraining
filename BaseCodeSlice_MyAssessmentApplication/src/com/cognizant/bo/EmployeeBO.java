@@ -37,8 +37,8 @@ public class EmployeeBO {
 	public Employee incrementSalary(int id, double amount) throws Exception {
 		
 		Employee emp =  employeeDAO.incrementSalary(id, amount);
-		if(amount<0)
-			throw new Exception("AMount is negative");
+		if(id==1)
+			throw new RuntimeException("Id not supplied");
 		return emp;
 	}
 
