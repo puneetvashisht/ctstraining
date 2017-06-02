@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form:form method="POST" commandName="/BaseCodeSlice_BankManagementSystem/mvc/employee" modelAttribute="employee">
+<form:form method="POST" commandName="employee" modelAttribute="employee">
 <table>
     <tr>
         <td>User Name :</td>

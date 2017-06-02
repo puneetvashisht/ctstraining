@@ -1,13 +1,18 @@
 package com.cognizant.bo;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import org.junit.experimental.categories.IncludeCategories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cognizant.dao.EmployeeDAO;
 import com.cognizant.entity.Employee;
+import com.cognizant.entity.Increment;
 
 
 @Component
@@ -33,12 +38,11 @@ public class EmployeeBO {
 		return employeeDAO.findEmployeesBySalary(salary);
 	}
 
-	@Transactional
+//	@Transactional
 	public Employee incrementSalary(int id, double amount) throws Exception {
 		
 		Employee emp =  employeeDAO.incrementSalary(id, amount);
-		if(amount<0)
-			throw new Exception("AMount is negative");
+		
 		return emp;
 	}
 
