@@ -1,4 +1,3 @@
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <head>
     <title>Employee List</title>
@@ -12,15 +11,6 @@
     </style>
 </head>
 <body ng-app="myApp">
-
-Language : <a href="index.jsp?language=en">English</a>|<a href="index.jsp?language=zh_CN">Hindi</a>
-
-<h2>
-
-welcome : ${welcome.springmvc}
-</h2>
-
-Current Locale : ${pageContext.response.locale}
 
     <div ng-controller="EmpCtrl">
        
