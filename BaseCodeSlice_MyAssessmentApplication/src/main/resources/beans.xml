@@ -19,8 +19,29 @@
 	<context:component-scan base-package="com.cognizant.*"></context:component-scan>
 	
 	<bean id="messageSource"
-		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"></bean>
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="welcome" />
+		<property name="defaultEncoding" value="UTF-8" />
+		</bean>
 	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
+
+<bean id="localeResolver"
+	class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+	<property name="defaultLocale" value="en" />
+</bean>
+
+<bean id="localeChangeInterceptor"
+	class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+	<property name="paramName" value="locale" />
+</bean>
+
+<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" >
+	<property name="interceptors">
+	   <list>
+		<ref bean="localeChangeInterceptor" />
+	    </list>
+	</property>
+</bean>
 
 	
 	<bean id="dataSource" 
@@ -56,6 +77,14 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
+
+<!-- Register the welcome.properties -->
+<!-- 
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="welcome" />
+	</bean>
+	-->
 
 
 </beans>
