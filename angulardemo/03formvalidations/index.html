@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title></title>
+    <style>
+        .ng-invalid {
+            border: 1px solid red;
+        }
+        .ng-valid {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="AppCtrl">
+        <form action="">
+            <span id="test">Test</span>
+            <input type="text" name="email" ng-model="email" required/> {{email}}
+            <input type="number" name="salary" ng-model="salary"/>
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+    <script src="../libs/angular.js"></script>
+    <script>
+        var app = angular.module('myApp', [])
+        app.controller('AppCtrl', function($scope){
+            $scope.salary= 25
+        })
+    </script>
+</body>
+</html>

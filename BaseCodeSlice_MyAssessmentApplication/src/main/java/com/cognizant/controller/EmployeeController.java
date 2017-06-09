@@ -39,6 +39,7 @@ public class EmployeeController {
 		public String getEmployee(Model model){
 		
 		model.addAttribute("employee", new Employee());
+		model.addAttribute("welcome.springmvc");
 
 		return "employee";
 	}

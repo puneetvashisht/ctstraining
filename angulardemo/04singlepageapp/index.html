@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Single Page App</title>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body ng-app="myApp">
+
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#!/">Home</a></li>
+        <li role="presentation"><a href="#!/aboutus">About Us</a></li>
+
+    </ul>
+
+    <ng-view></ng-view>
+    
+    <script src="../libs/angular.js"></script>
+    <script src="../libs/angular-route.js"></script>
+    <script>
+        var app = angular.module('myApp', ['ngRoute'])
+       
+        app.config(function($routeProvider){
+            $routeProvider.when('/',{
+                templateUrl: 'partial/home.html'
+            })
+            .when('/aboutus',{
+                templateUrl: 'partial/about.html'
+            })
+        })
+
+    </script>
+</body>
+</html>
