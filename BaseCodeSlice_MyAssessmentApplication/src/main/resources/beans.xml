@@ -18,8 +18,31 @@
 
 	<context:component-scan base-package="com.cognizant.*"></context:component-scan>
 	
-
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+			<property name="basename" value="classpath:welcome" />
+			<property name="defaultEncoding" value="UTF-8" />
+		</bean>
 	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
+
+<bean id="localeResolver"
+	class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+<property name="defaultLocale" value="fr" />
+<!-- 	<property name="defaultLocale" value="zh_CN" /> -->
+</bean>
+
+<bean id="localeChangeInterceptor"
+	class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+	<property name="paramName" value="language" />
+</bean>
+
+<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" >
+	<property name="interceptors">
+	   <list>
+		<ref bean="localeChangeInterceptor" />
+	    </list>
+	</property>
+</bean>
 
 	
 	<bean id="dataSource" 
